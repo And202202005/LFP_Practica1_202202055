@@ -8,11 +8,10 @@ enum Type {
     PAR_OPEN,
     PAR_CLOSE,
     SEMICOLON,
-    EQUAL,
     RESERVERD_WORD,
     NUMBER,
     STRING,
-    ASSIGN
+    COMMA
 }
 
 class Token {
@@ -22,6 +21,7 @@ class Token {
     private lexeme: string;
     private typeToken: Type;
     private typeTokenString: string;
+    
 
     constructor(typeToken: Type, lexeme: string, row: number, column: number){
         this.typeToken = typeToken;

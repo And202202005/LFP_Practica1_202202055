@@ -1,50 +1,17 @@
 import { Request, Response }  from "express";
-import {LexicalAnalyzer } from "../Analyzer/LexicanAnalyzer";
+import {LexicalAnalyzer } from "../Analizator/LexicalAnalyzer";
+import { Token } from "../Analizator/Token";
 
 export const analyze =(req: Request, res: Response) =>{
 
     const input =req.body;
+
     let lexicalAnalyzer: LexicalAnalyzer = new LexicalAnalyzer();
 
-    let tokenList = lexicalAnalyzer.scanner(input);
-    let errorList = lexicalAnalyzer.getErroList();
+    let tokenList: Token[] = lexicalAnalyzer.scanner(input);
 
     res.json({
         "tokens": tokenList,
-        "errors": errorList
+        "errors": lexicalAnalyzer.getErrorList()
     });
-}
-
-export const home = ( req: Request, res: Response) =>{
-    let pokemons = [
-        {
-            name: "venusaur",
-            type: "planta"
-        },
-        {
-            name: "charizard",
-            type: "fuego"
-        },
-        {
-            name: "dragonite",
-            type: "dragon"
-        }
-    ]
-
-    let jugadores =[
-        {
-            name:"Elian",
-            pokemons: pokemons
-        },
-        {
-            name:"Andhre",
-            pokemons: pokemons
-        },
-        {
-            name:"Maria",
-            pokemons: pokemons
-        }
-    ]
-
-    res.render('pages/index', {name: "Andhre", jugadores: jugadores});
 }

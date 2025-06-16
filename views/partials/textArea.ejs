@@ -1,0 +1,24 @@
+<div class="form-group">
+        <label for="file_input">Seleccionar archivo:</label>
+        <input type="file" name="Archivo" id="file_input">
+    </div>
+
+    <div class="form-group">
+        <label for="editor">Contenido:</label>
+        <textarea name="Contenido" id="editor" placeholder="Contenido del archivo..."></textarea>
+    </div>
+
+        <button id="btn-analizar">Analizar</button>
+
+        <button id="btn-ver-tecnico">Manual Tecnico</button>
+        <button id="btn-ver-usuario">Manual de Usuario</button>
+
+        <div id="visor-pdf" style="margin-top: 20px; display: none;">
+            <button id="btn-cerrar" style="position: absolute; top: 10px; right: 10px; z-index: 1;">Cerrar</button>
+            <iframe id="iframe-pdf" src="" width="100%" height="600px"></iframe>
+        </div>
+
+
+
+
+        <script src = "/js/index.js"></script>
